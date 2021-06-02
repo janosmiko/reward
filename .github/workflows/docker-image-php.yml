@@ -25,7 +25,7 @@ jobs:
             php_variants: "cli fpm"
     steps:
       - uses: actions/checkout@v1
-      - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+      - run: ./images/scripts/build.sh "${BUILD_GROUP}"
         env:
           BUILD_GROUP: php
           DOCKER_BASE_IMAGE: ${{ matrix.docker_base_image }}
@@ -47,7 +47,7 @@ jobs:
             php_variant: "fpm"
     steps:
     - uses: actions/checkout@v1
-    - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+    - run: ./images/scripts/build.sh "${BUILD_GROUP}"
       env:
         BUILD_GROUP: php-fpm
         PHP_VERSION: ${{ matrix.php_version }}
@@ -65,7 +65,7 @@ jobs:
         build_group: ["magento1", "magento1-debian"]
     steps:
     - uses: actions/checkout@v1
-    - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+    - run: ./images/scripts/build.sh "${BUILD_GROUP}"
       env:
         BUILD_GROUP: php-fpm/${{ matrix.build_group }}
         PHP_VERSION: ${{ matrix.php_version }}
@@ -82,7 +82,7 @@ jobs:
         build_group: ["magento2", "magento2-debian"]
     steps:
     - uses: actions/checkout@v1
-    - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+    - run: ./images/scripts/build.sh "${BUILD_GROUP}"
       env:
         BUILD_GROUP: php-fpm/${{ matrix.build_group }}
         PHP_VERSION: ${{ matrix.php_version }}
@@ -99,7 +99,7 @@ jobs:
         build_group: ["magento2-web"]
     steps:
       - uses: actions/checkout@v1
-      - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+      - run: ./images/scripts/build.sh "${BUILD_GROUP}"
         env:
           BUILD_GROUP: php-fpm/${{ matrix.build_group }}
           PHP_VERSION: ${{ matrix.php_version }}
@@ -116,7 +116,7 @@ jobs:
         build_group: ["wordpress", "wordpress-debian"]
     steps:
       - uses: actions/checkout@v1
-      - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+      - run: ./images/scripts/build.sh "${BUILD_GROUP}"
         env:
           BUILD_GROUP: php-fpm/${{ matrix.build_group }}
           PHP_VERSION: ${{ matrix.php_version }}
@@ -133,7 +133,7 @@ jobs:
         build_group: ["shopware", "shopware-debian"]
     steps:
       - uses: actions/checkout@v1
-      - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
+      - run: ./images/scripts/build.sh "${BUILD_GROUP}"
         env:
           BUILD_GROUP: php-fpm/${{ matrix.build_group }}
           PHP_VERSION: ${{ matrix.php_version }}
