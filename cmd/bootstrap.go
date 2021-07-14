@@ -65,8 +65,12 @@ func init() {
 
 	_ = viper.BindPFlag(reward.AppName+"_magento_type", bootstrapCmd.Flags().Lookup("magento-type"))
 
+	magentoVersion, err := reward.GetMagentoVersion()
+	if err != nil {
+		panic(err)
+	}
 	bootstrapCmd.Flags().String(
-		"magento-version", reward.GetMagentoVersion().String(), "magento version")
+		"magento-version", magentoVersion.String(), "magento version")
 
 	_ = viper.BindPFlag(reward.AppName+"_magento_version", bootstrapCmd.Flags().Lookup("magento-version"))
 
